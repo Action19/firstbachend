@@ -5,6 +5,7 @@ const usersRoutes = require('./routes/usersRoutes');
 
 
 const app = express();
+require('./startup/prod')(app);
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
