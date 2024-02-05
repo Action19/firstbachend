@@ -13,8 +13,8 @@ app.use(usersRoutes);
 app.use(studentRoutes);
 
 
+const PORT = process.env.PORT || 5000
 
-
-app.listen(5000, () =>{
-    console.log('5000 port eshitilmoqda');
+app.listen(PORT, () =>{
+    console.log( PORT + ' port eshitilmoqda');
 })
