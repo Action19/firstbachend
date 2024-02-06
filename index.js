@@ -1,10 +1,12 @@
 const express = require('express');
 require('./service/connectdb')();
+const cors = require('cors');
 const studentRoutes = require('./routes/studentsRoute');
 const usersRoutes = require('./routes/usersRoutes'); 
 
 
 const app = express();
+app.use(cors());
 require('./startup/prod')(app);
 
 app.use(express.urlencoded({extended: true}))
