@@ -25,6 +25,7 @@ router.post('/students', upload.single('image'), userName, async (req, res) =>{
     const student = new Students({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
+        fathername: req.body.fathername,
         grade: req.body.grade,
         image: req.file.filename,
         login: req.body.username,
