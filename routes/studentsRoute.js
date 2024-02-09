@@ -18,16 +18,16 @@ const upload = multer({
     })
 });
 
+// upload.single('image')
 
-
-router.post('/students', upload.single('image'), userName, async (req, res) =>{
+router.post('/students', userName, async (req, res) =>{
     // const username = generateUsername(".", 5, 20, req.body.firstname + req.body.lastname);
     const student = new Students({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         fathername: req.body.fathername,
         grade: req.body.grade,
-        image: req.file.filename,
+        image: req.body.image,
         login: req.body.username,
         password: '12345678',
     });
