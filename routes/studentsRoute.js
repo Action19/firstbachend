@@ -43,13 +43,13 @@ router.post('/students', userName, async (req, res) =>{
 });
 
 
-router.get('/students/:grade',async (req, res) =>{
-    const grade = await Students.find({grade: req.params.grade})
-    if(grade.length !== 0){
-        res.status(200).send(grade) 
+router.get('/students/:id',async (req, res) =>{
+    const student = await Students.find({_id: req.params.id})
+    if(student.length !== 0){
+        res.status(200).send(student) 
     }
     else{
-        res.status(404).send("Bunday sinf yo'q")
+        res.status(404).send("Bunday o'quvchi yo'q")
     }
 })
 
