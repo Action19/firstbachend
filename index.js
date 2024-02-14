@@ -10,7 +10,7 @@ app.use(cors());
 require('./startup/prod')(app);
 
 app.use(express.urlencoded({extended: true}))
-app.use(express.json());
+app.use(express.json({limit: "10mb"}));
 app.use(usersRoutes);
 app.use(studentRoutes);
 
