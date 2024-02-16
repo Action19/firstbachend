@@ -26,7 +26,7 @@ router.post('/grades', async (req, res) =>{
 router.get('/grades', async (req, res) =>{
     try {
         const grade = await Grades.find();
-        if(grade){
+        if(grade.length !== 0){
             res.status(200).send(grade);
         } else {
             res.status(404).send("Sinf ma'lumotlarini olib bo'lmadi");
