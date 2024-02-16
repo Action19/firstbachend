@@ -39,5 +39,15 @@ router.get('/grades', async (req, res) =>{
 
 });
 
+router.delete('/grades/:id', async (req, res) =>{
+    const grade = await Grades.findByIdAndDelete(req.params.id);
+    if(grade){
+        res.status(200).send(grade)
+    }
+    else{
+        res.status(404).send("Bunday o'quvchi  mavjud emas")
+    }
+
+});
 
 module.exports =  router;
