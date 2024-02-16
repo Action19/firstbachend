@@ -36,8 +36,6 @@ router.get('/grades', async (req, res) =>{
         console.error(error);
         res.status(500).send("Serverda xatolik yuz berdi"); 
     }
-    
-    res.send(user);
 
 });
 
