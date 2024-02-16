@@ -52,21 +52,23 @@ router.get('/students/:id',async (req, res) =>{
         res.status(404).send("Bunday o'quvchi yo'q")
     }
 })
-router.patch('/students/:id',async (req, res) =>{
-    const student = await Students.findByIdAndUpdate(
-        req.params.id, {
-            ...req.body
-        },
-        {
-            new: true
-        })
-    if(student.length !== 0){
-        res.status(200).send(student) 
+router.put('/students/:id', async (req, res) => {
+    try {
+        const student = await Students.findByIdAndUpdate(
+            req.params.id, 
+            { ...req.body },
+            { new: true }
+        );
+        if (student) {
+            res.status(200).send(student);
+        } else {
+            res.status(404).send("Yangilashda hatolik");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Serverda xatolik yuz berdi");
     }
-    else{
-        res.status(404).send("Yangilashda hatolik")
-    }
-})
+});
 
 router.get('/students',async (req, res) =>{
     const data = await Students.find()
