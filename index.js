@@ -7,7 +7,9 @@ const gradeRoutes = require('./routes/gradeRoutes');
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173",
+}));
 
 require('./startup/prod')(app);
 
