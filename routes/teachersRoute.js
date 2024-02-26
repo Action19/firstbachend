@@ -70,15 +70,15 @@ router.post('/teachers', userName, async (req, res) =>{
 //     }
 // });
 
-// router.get('/students',async (req, res) =>{
-//     const data = await Students.find()
-//     if(data.length !== 0){
-//         res.status(200).send(data) 
-//     }
-//     else{
-//         res.status(404).send("Hatolik yuz berdi")
-//     }
-// })
+router.get('/teachers',async (req, res) =>{
+    const data = await Teachers.find()
+    if(data.length !== 0){
+        res.status(200).send(data) 
+    }
+    else{
+        res.status(404).send("Hatolik yuz berdi")
+    }
+})
 
 // router.delete('/students/:id', async (req, res) =>{
 //     const student = await Students.findByIdAndDelete(req.params.id);
