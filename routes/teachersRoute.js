@@ -4,6 +4,7 @@ const userName = require('../middleware/generateUser');
 const router =express.Router(); 
 const multer  = require('multer');
 const path = require('path');
+const cors = require('cors');
 
 
 
@@ -20,7 +21,7 @@ const upload = multer({
 
 // upload.single('image')
 
-router.post('/teachers', userName, async (req, res) =>{
+router.post('/teachers', userName, cors(),  async (req, res) =>{
     // const username = generateUsername(".", 5, 20, req.body.firstname + req.body.lastname);
     const teacher = new Teachers({
         firstname: req.body.firstname,

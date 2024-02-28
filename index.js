@@ -9,7 +9,7 @@ const teacherRoutes = require('./routes/teachersRoute');
 
 const app = express();
 app.use(cors({
-    origin: ' http://localhost:5173/'
+    origin: ["http://localhost:5173"]
 }));
 
 app.use(function(req, res, next) {
