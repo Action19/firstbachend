@@ -4,7 +4,7 @@ const userName = require('../middleware/generateUser');
 const router =express.Router(); 
 const multer  = require('multer');
 const path = require('path');
-const cors = require('cors');
+// const cors = require('cors');
 
 
 
@@ -21,7 +21,7 @@ const upload = multer({
 
 // upload.single('image')
 
-router.post('/teachers', userName, cors(),  async (req, res) =>{
+router.post('/teachers', userName,  async (req, res) =>{
     // const username = generateUsername(".", 5, 20, req.body.firstname + req.body.lastname);
     const teacher = new Teachers({
         firstname: req.body.firstname,
@@ -44,32 +44,32 @@ router.post('/teachers', userName, cors(),  async (req, res) =>{
 });
 
 
-// router.get('/students/:id',async (req, res) =>{
-//     const student = await Students.find({_id: req.params.id})
-//     if(student.length !== 0){
-//         res.status(200).send(student) 
-//     }
-//     else{
-//         res.status(404).send("Bunday o'quvchi yo'q")
-//     }
-// })
-// router.put('/students/:id', async (req, res) => {
-//     try {
-//         const student = await Students.findByIdAndUpdate(
-//             req.params.id, 
-//             { ...req.body },
-//             { new: true }
-//         );
-//         if (student) {
-//             res.status(200).send(student);
-//         } else {
-//             res.status(404).send("Yangilashda hatolik");
-//         }
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send("Serverda xatolik yuz berdi");
-//     }
-// });
+router.get('/teachers/:id',async (req, res) =>{
+    const teacher = await Teachers.find({_id: req.params.id})
+    if(teacher.length !== 0){
+        res.status(200).send(teacher) 
+    }
+    else{
+        res.status(404).send("Bunday o'qituvchi yo'q")
+    }
+})
+router.put('/teachers/:id', async (req, res) => {
+    try {
+        const teacher = await Teachers.findByIdAndUpdate(
+            req.params.id, 
+            { ...req.body },
+            { new: true }
+        );
+        if (teacher) {
+            res.status(200).send(teacher);
+        } else {
+            res.status(404).send("Yangilashda hatolik");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Serverda xatolik yuz berdi");
+    }
+});
 
 router.get('/teachers',async (req, res) =>{
     const data = await Teachers.find()
@@ -81,16 +81,16 @@ router.get('/teachers',async (req, res) =>{
     }
 })
 
-// router.delete('/students/:id', async (req, res) =>{
-//     const student = await Students.findByIdAndDelete(req.params.id);
-//     if(student){
-//         res.status(200).send(student)
-//     }
-//     else{
-//         res.status(404).send("Bunday o'quvchi  mavjud emas")
-//     }
+router.delete('/teachers/:id', async (req, res) =>{
+    const teacher = await Teachers.findByIdAndDelete(req.params.id);
+    if(teacher){
+        res.status(200).send(teacher)
+    }
+    else{
+        res.status(404).send("Bunday o'qituvchi  mavjud emas")
+    }
 
-// });
+});
 
 
 module.exports =  router;
