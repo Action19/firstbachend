@@ -4,7 +4,7 @@ const router =express.Router();
 
 
 
-router.post('/scienses', async (req, res) =>{
+router.post('/sciences', async (req, res) =>{
     try {
         const science = new Science({
             scienseName: req.body.scienseName
@@ -23,7 +23,7 @@ router.post('/scienses', async (req, res) =>{
 
 });
 
-router.get('/scienses', async (req, res) =>{
+router.get('/sciences', async (req, res) =>{
     try {
         const science = await Science.find();
         if(science.length !== 0){
