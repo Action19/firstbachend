@@ -7,7 +7,7 @@ const router =express.Router();
 router.post('/sciences', async (req, res) =>{
     try {
         const newScience = new Science({
-            science: req.body.scienseName
+            science: req.body.science
         });
         if(newScience){
             const saveScience = await newScience.save();
