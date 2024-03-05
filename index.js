@@ -4,6 +4,7 @@ const cors = require('cors');
 const studentRoutes = require('./routes/studentsRoute');
 const usersRoutes = require('./routes/usersRoutes'); 
 const gradeRoutes = require('./routes/gradeRoutes');
+const scienceRoutes = require('./routes/scienceRoutes');
 const teacherRoutes = require('./routes/teachersRoute');
 
 
@@ -21,6 +22,7 @@ app.use(usersRoutes);
 app.use(studentRoutes);
 app.use(teacherRoutes);
 app.use(gradeRoutes);
+app.use(scienceRoutes);
 
 
 const PORT = process.env.PORT || 5000
