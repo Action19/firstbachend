@@ -6,12 +6,12 @@ const router =express.Router();
 
 router.post('/sciences', async (req, res) =>{
     try {
-        const science = new Science({
-            scienseName: req.body.scienseName
+        const newScience = new Science({
+            sciense: req.body.scienseName
         });
-        if(scienseName){
-            const saveScience = await science.save();
-            res.status(200).send(saveGrade);
+        if(newScience){
+            const saveScience = await newScience.save();
+            res.status(200).send(saveScience);
         } else {
             res.status(404).send("Fan yaratishda hatolik");
         }
