@@ -31,6 +31,7 @@ router.post('/teachers', userName,  async (req, res) =>{
         image: req.body.image,
         login: req.body.username,
         password: '12345678',
+        role: 'Teacher'
     });
 
     const result = await teacher.save();
