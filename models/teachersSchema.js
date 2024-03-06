@@ -13,6 +13,7 @@ const teachersSchema = new mongoose.Schema({
         of: [String],
       },
     image: {type: String},
+    role: {type: String},
     login: {type: String, unique: true},
     password: {type: String},
 }, {timestamps: true, });
