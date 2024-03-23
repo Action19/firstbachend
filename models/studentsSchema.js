@@ -8,6 +8,10 @@ const studentsSchema = new mongoose.Schema({
     image: {type: String},
     login: {type: String, unique: true},
     password: {type: String},
+    ratings: {
+        type: Map,
+        of: [Number]
+    }
 }, {timestamps: true, });
 
 
