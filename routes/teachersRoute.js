@@ -55,15 +55,15 @@ router.get('/teachers/:id',async (req, res) =>{
     }
 })
 
-router.get('/teachers', async (req, res) =>{
-    const teacherLogin = await Teachers.find({login: req.body.login})
-    if(teacherLogin.length !== 0){
-        res.status(200).send(teacherLogin) 
-    }
-    else{
-        res.status(404).send([])
-    }
-})
+// router.get('/teachers', async (req, res) =>{
+//     const teacherLogin = await Teachers.find({login: req.body.login})
+//     if(teacherLogin.length !== 0){
+//         res.status(200).send(teacherLogin) 
+//     }
+//     else{
+//         res.status(404).send([])
+//     }
+// })
 
 
 router.put('/teachers/:id', async (req, res) => {
