@@ -6,6 +6,8 @@ const usersRoutes = require('./routes/usersRoutes');
 const gradeRoutes = require('./routes/gradeRoutes');
 const scienceRoutes = require('./routes/scienceRoutes');
 const teacherRoutes = require('./routes/teachersRoute');
+const ratingsRoutes = require('./routes/ratingRoutes');
+
 
 
 const app = express();
@@ -23,6 +25,7 @@ app.use(studentRoutes);
 app.use(teacherRoutes);
 app.use(gradeRoutes);
 app.use(scienceRoutes);
+app.use(ratingsRoutes);
 
 
 const PORT = process.env.PORT || 5000
