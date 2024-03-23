@@ -6,7 +6,7 @@ const router =express.Router();
 router.put('/ratings/:id', async (req, res) => {
     try {
         const updateField = {};
-        updateField["ratings." + req.body.science] = 50;
+        updateField["ratings." + req.body.science] = req.body.rating;
 
         const student = await Students.findByIdAndUpdate(
             req.params.id, 
