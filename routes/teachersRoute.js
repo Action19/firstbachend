@@ -4,6 +4,7 @@ const userName = require('../middleware/generateUser');
 const router =express.Router(); 
 const multer  = require('multer');
 const path = require('path');
+const generateJWTToken = require('../service/token')
 // const cors = require('cors');
 
 
@@ -23,6 +24,7 @@ const upload = multer({
 
 router.post('/teachers', userName,  async (req, res) =>{
     // const username = generateUsername(".", 5, 20, req.body.firstname + req.body.lastname);
+    const token = generateJWTToken(res._id, res.role)
     const teacher = new Teachers({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -31,7 +33,8 @@ router.post('/teachers', userName,  async (req, res) =>{
         image: req.body.image,
         login: req.body.username,
         password: '12345678',
-        role: 'Teacher'
+        role: 'Teacher',
+        token: token
     });
 
     const result = await teacher.save();
