@@ -24,7 +24,6 @@ const upload = multer({
 
 router.post('/teachers', userName,  async (req, res) =>{
     // const username = generateUsername(".", 5, 20, req.body.firstname + req.body.lastname);
-    const token = generateJWTToken(res._id, res.role)
     const teacher = new Teachers({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -34,7 +33,7 @@ router.post('/teachers', userName,  async (req, res) =>{
         login: req.body.username,
         password: '12345678',
         role: 'Teacher',
-        token: token
+        token: generateJWTToken(teacher._id, teacher.role)
     });
 
     const result = await teacher.save();
