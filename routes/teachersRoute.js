@@ -33,9 +33,9 @@ router.post('/teachers', userName,  async (req, res) =>{
         login: req.body.username,
         password: '12345678',
         role: 'Teacher',
-        token: generateJWTToken(teacher._id, teacher.role)
+        
     });
-
+    teacher.token = generateJWTToken(teacher._id, teacher.role)
     const result = await teacher.save();
     if (result) {
         console.log("Muvaffaqiyatli saqlandi");
