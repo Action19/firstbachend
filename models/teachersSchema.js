@@ -16,6 +16,7 @@ const teachersSchema = new mongoose.Schema({
     role: {type: String},
     login: {type: String, unique: true},
     password: {type: String},
+    token: {type: String},
 }, {timestamps: true, });
 
 
