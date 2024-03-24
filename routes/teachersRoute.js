@@ -70,9 +70,10 @@ router.get('/teachers/:id',async (req, res) =>{
 
 router.put('/teachers/:id', async (req, res) => {
     try {
+        const token = generateJWTToken(req.params.id, req.body.role)
         const teacher = await Teachers.findByIdAndUpdate(
             req.params.id, 
-            { ...req.body },
+            { ...req.body, token: token },
             { new: true }
         );
         if (teacher) {
