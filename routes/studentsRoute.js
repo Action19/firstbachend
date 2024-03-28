@@ -3,6 +3,7 @@ const Students = require('../models/studentsSchema');
 const userName = require('../middleware/generateUser');
 const router =express.Router(); 
 const multer  = require('multer');
+const generateJWTToken = require('../service/token')
 const path = require('path');
 
 
@@ -30,8 +31,9 @@ router.post('/students', userName, async (req, res) =>{
         image: req.body.image,
         login: req.body.username,
         password: '12345678',
+        role: 'Student',
     });
-
+    student.token = generateJWTToken(student._id, student.role)
     const result = await student.save();
     if (result) {
         console.log("Muvaffaqiyatli saqlandi");
@@ -54,9 +56,10 @@ router.get('/students/:id',async (req, res) =>{
 })
 router.put('/students/:id', async (req, res) => {
     try {
+        const token = generateJWTToken(req.params.id, req.body.role)
         const student = await Students.findByIdAndUpdate(
             req.params.id, 
-            { ...req.body },
+            { ...req.body, token: token },
             { new: true }
         );
         if (student) {

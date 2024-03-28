@@ -6,12 +6,14 @@ const studentsSchema = new mongoose.Schema({
     fathername: {type: String, required: true},
     grade: {type: String, required: true},
     image: {type: String},
+    role: {type: String},
     login: {type: String, unique: true},
     password: {type: String},
     ratings: {
         type: Map,
         of: [Number]
-    }
+    },
+    token: {type: String},
 }, {timestamps: true, });
 
 
