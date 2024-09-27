@@ -26,6 +26,7 @@ app.use(studentRoutes);
 app.use(teacherRoutes);
 app.use(gradeRoutes);
 app.use(scienceRoutes);
+app.use(schoolRoutes);
 app.use(ratingsRoutes);
 
 
