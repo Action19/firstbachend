@@ -7,6 +7,7 @@ const gradeRoutes = require('./routes/gradeRoutes');
 const scienceRoutes = require('./routes/scienceRoutes');
 const teacherRoutes = require('./routes/teachersRoute');
 const ratingsRoutes = require('./routes/ratingRoutes');
+const schoolRoutes = require('./routes/schoolRoutes');
 
 
 
