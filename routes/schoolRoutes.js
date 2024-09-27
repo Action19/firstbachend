@@ -1,5 +1,5 @@
 const express = require('express');
-const Schools = require('../models/SchoolSchema');
+const Schools = require('../models/schoolSchema');
 const router =express.Router(); 
 
 
