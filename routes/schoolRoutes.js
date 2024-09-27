@@ -7,7 +7,7 @@ const router =express.Router();
 router.post('/schools', async (req, res) =>{
     try {
         const school = new Schools({
-            gradename: req.body.schoolname
+            schoolname: req.body.schoolname
         });
         if(school){
             const saveSchool = await school.save();
