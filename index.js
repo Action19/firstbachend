@@ -7,7 +7,7 @@ const gradeRoutes = require('./routes/gradeRoutes');
 const scienceRoutes = require('./routes/scienceRoutes');
 const teacherRoutes = require('./routes/teachersRoute');
 const ratingsRoutes = require('./routes/ratingRoutes');
-const schoolRoutes = require('./routes/schoolRoutes');
+// const schoolRoutes = require('./routes/schoolRoutes');
 
 
 
@@ -26,7 +26,7 @@ app.use(studentRoutes);
 app.use(teacherRoutes);
 app.use(gradeRoutes);
 app.use(scienceRoutes);
-app.use(schoolRoutes);
+// app.use(schoolRoutes);
 app.use(ratingsRoutes);
 
 
