@@ -27,6 +27,7 @@ router.post('/students', userName, async (req, res) =>{
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         fathername: req.body.fathername,
+        schoolname: req.body.schoolname,
         grade: req.body.grade,
         image: req.body.image,
         login: req.body.username,
