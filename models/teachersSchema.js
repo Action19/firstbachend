@@ -8,8 +8,9 @@ const teachersSchema = new mongoose.Schema({
     firstname: {type: String, required: true},
     lastname: {type: String, required: true},
     fathername: {type: String, required: true},
-    science: {
-        type: Map,
+    schoolname: {type: String, required: true},
+    grades: {
+        type: Array,
         of: [String],
       },
     image: {type: String},
